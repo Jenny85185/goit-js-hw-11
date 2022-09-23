@@ -16,7 +16,7 @@ const refs = {
   refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 
-      //////---- FUNCTION ----////
+    
    function onSearch(e) {
      e.preventDefault();    
      refs.galleryContainer.innerHTML = '';      
@@ -46,18 +46,18 @@ const refs = {
          lightbox.refresh();
        });
    }
-   // ф-ция кнопки, которая добавляет картинки (onScrollmake)
+   
    async function onLoadMore() {  
    photo.fetchGalleryCards().then(onScrollmake);
   }
    
- // ф-ция рендерит массив (дата) картинок согласно разметки (renderCard)
+
    function  onRenderGallery(data) {     
      const markup = data.hits.map(data => rendCard(data)).join('');
           refs.galleryContainer.insertAdjacentHTML('beforeend', markup);      
    }
    
-  // ф-ция скролла для дальнейшего открытия картинок *более 40 шт)
+
   function onScrollmake(data) {
     onRenderGallery(data);
  
@@ -78,14 +78,13 @@ const refs = {
      Notiflix.info("We're sorry, but you've reached the end of search results.");
    }
  }
- // функция бесконечного скрола 
-  // вешаем слушателя на вьюпор  
+  
   const options = {
     rootMargin: '50px',
     root: null,
     threshold: 0.3
   };
-  // регистрируем IntersectionObserver
+ 
 const observer = new IntersectionObserver(onLoadMore, options);
 observer.observe(refs.loadMoreBtn); 
  
