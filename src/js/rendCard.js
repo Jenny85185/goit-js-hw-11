@@ -7,6 +7,7 @@ export default function rendCard(data) {
   <div class="info">
     <p class="info-item">
       <b>Likes</b>
+      
       ${data.likes}
     </p>
     <p class="info-item">

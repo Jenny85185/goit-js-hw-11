@@ -19,6 +19,7 @@ export default class Photo  {
           page: `${this.page}`,
           per_page: 40,
         },
+        
       };
       try {
         const response = await axios(axiosOptions);
