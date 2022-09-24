@@ -10,7 +10,7 @@
 
     padding: 25px 0 25px 0;
 
-    background:  rgb(26, 115, 232);
+    background:  rgb(245, 98, 201);
     box-shadow: 0px 3px 5px 0px rgba(0, 4, 56, 0.5);
 }
 
@@ -20,8 +20,8 @@
     font-size: 16px;
     outline: none;
     border: none;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
+    border-radius: 5px;
+   
 
     &::placeholder {
         font-size: 16px;
@@ -32,13 +32,10 @@
 .search-form__button {
     width: 100px;
     height: 30px;
-
     font-size: 16px;
-
     border: none;
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-
+    border-radius: 5px;
+margin-left: 5px;
     cursor: pointer;
     transition: font-weight 250ms linear, color 250ms linear,
         background-color 250ms linear;
@@ -46,7 +43,7 @@
     &:hover,
     &:focus {
         background-color: rgb(216, 187, 24);
-        color: #ffffff;
+        color: #fff;
         font-weight: 700;
     }
 }
