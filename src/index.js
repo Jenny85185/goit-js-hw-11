@@ -72,7 +72,7 @@ function onScrollmake(data) {
     .firstElementChild.getBoundingClientRect();
 
   window.scrollBy({
-    top: cardHeight * 2,
+    top: cardHeight * 0,
     behavior: 'smooth',
   });
 
