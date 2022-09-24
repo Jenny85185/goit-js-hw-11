@@ -3,14 +3,12 @@
     top: 0;
     left: 0;
     width: 100%;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     padding: 25px 0 25px 0;
 
-    background:  rgb(245, 98, 201);
+    background:  rgb(11, 25, 224);
     box-shadow: 0px 3px 5px 0px rgba(0, 4, 56, 0.5);
 }
 
@@ -42,7 +40,7 @@ margin-left: 5px;
 
     &:hover,
     &:focus {
-        background-color: rgb(216, 187, 24);
+        background-color: rgb(11,25,224);
         color: #fff;
         font-weight: 700;
     }
