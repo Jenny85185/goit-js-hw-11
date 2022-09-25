@@ -1,6 +1,6 @@
 import './sass/index.scss';
 import { lightbox } from './js/slider';
-import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import Notiflix from 'notiflix';
 import Photo from './js/fetchPhoto.js';
 import rendCard from './js/rendCard.js';
 
@@ -23,7 +23,7 @@ function onSearch(e) {
   photo.resetPage();
 
   if (photo.query === '') {
-    Notify.warning('Please, fill the main field');
+     Notiflix.Notify.warning('Please, fill the main field');
     return;
   }
 
@@ -32,14 +32,14 @@ function onSearch(e) {
     refs.loadMoreBtn.classList.remove('is-hidden');
 
     if (!data.hits.length) {
-      Notify.warning(
+       Notiflix.Notify.warning(
         `Sorry, there are no images matching your search query. Please try again.`
       );
       refs.loadMoreBtn.classList.add('is-hidden');
       return;
     }
     onRenderGallery(data);
-    Notify.success(`Hooray! We found ${data.totalHits} images !!!`);
+    Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images !!!`);
     lightbox.refresh();
   });
 
@@ -79,6 +79,6 @@ function onScrollmake(data) {
   if (data.hits.length < 40 && data.hits.length > 0) {
     refs.loadMoreBtn.classList.add('is-hidden');
     photo.incrementPage();
-    Notiflix.info("We're sorry, but you've reached the end of search results.");
+    Notiflix.Notify.info("We're sorry, but you've reached the end of search results.");
   }
 }
