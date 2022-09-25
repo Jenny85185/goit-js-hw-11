@@ -46,14 +46,7 @@ function onSearch(e) {
     lightbox.refresh();
   });
 
-  // const options = {
-  //   rootMargin: '50px',
-  //   root: null,
-  //   threshold: 0.3,
-  // };
-
-  // const observer = new IntersectionObserver(onLoadMore, options);
-  // observer.observe(refs.loadMoreBtn);
+  
 }
 
 async function onLoadMore() {
