@@ -5,11 +5,12 @@ import Photo from './js/fetchPhoto.js';
 import rendCard from './js/rendCard.js';
 
 const refs = {
-  searchForm: document.querySelector('.search-form'),
+  searchForm: document.querySelector('#search-form'),
   galleryContainer: document.querySelector('.gallery'),
   loadMoreBtn: document.querySelector('.load-more'),
 };
 
+let isShown = 0;
 const photo = new Photo();
 
 refs.searchForm.addEventListener('submit', onSearch);
@@ -17,10 +18,11 @@ refs.loadMoreBtn.addEventListener('click', onLoadMore);
 
 function onSearch(e) {
   e.preventDefault();
+  isShown = 0;
   refs.galleryContainer.innerHTML = '';
-
-  photo.query = e.currentTarget.elements.searchQuery.value.trim();
   photo.resetPage();
+  photo.query = e.target.elements.searchQuery.value.trim();
+  
 
   if (photo.query === '') {
      Notiflix.Notify.warning('Please, fill the main field');
@@ -40,17 +42,18 @@ function onSearch(e) {
     }
     onRenderGallery(data);
     Notiflix.Notify.success(`Hooray! We found ${data.totalHits} images !!!`);
+    refs.loadMoreBtn.classList.remove('is-hidden');
     lightbox.refresh();
   });
 
-  const options = {
-    rootMargin: '50px',
-    root: null,
-    threshold: 0.3,
-  };
+  // const options = {
+  //   rootMargin: '50px',
+  //   root: null,
+  //   threshold: 0.3,
+  // };
 
-  const observer = new IntersectionObserver(onLoadMore, options);
-  observer.observe(refs.loadMoreBtn);
+  // const observer = new IntersectionObserver(onLoadMore, options);
+  // observer.observe(refs.loadMoreBtn);
 }
 
 async function onLoadMore() {
